@@ -1,0 +1,6 @@
+# Ejemplo: copia este archivo a la carpeta de guardado del mod como macro.txt
+# frame down player
+120 1 1
+132 0 1
+300 1 1
+306 0 1

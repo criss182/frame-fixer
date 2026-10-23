@@ -1,0 +1,43 @@
+{
+	"geode": "4.0.0",
+	"gd": {
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
+	},
+	"id": "tuusuario.frame-fixer",
+	"name": "Frame Fixer",
+	"version": "v1.0.0",
+	"developer": "tuusuario",
+	"description": "Graba y reproduce macros de clicks por frame, con ajuste global de offset.",
+	"settings": {
+		"enabled": {
+			"type": "bool",
+			"name": "Reproducir macro",
+			"description": "Reproduce los clicks del archivo de macro y bloquea los clicks manuales.",
+			"default": false
+		},
+		"record": {
+			"type": "bool",
+			"name": "Grabar macro",
+			"description": "Graba tus clicks y los guarda al completar el nivel o al salir. Se ignora si 'Reproducir macro' está activo.",
+			"default": false
+		},
+		"macro-name": {
+			"type": "string",
+			"name": "Nombre del archivo",
+			"description": "Archivo dentro de la carpeta de guardado del mod.",
+			"default": "macro.txt"
+		},
+		"offset": {
+			"type": "int",
+			"name": "Offset de frames",
+			"description": "Desplaza todos los clicks. Negativo = antes, positivo = después.",
+			"default": 0,
+			"min": -20,
+			"max": 20,
+			"control": { "input": true, "slider": true }
+		}
+	}
+}
