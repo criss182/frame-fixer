@@ -69,7 +69,7 @@ static void seek(int frame) {
 }
 
 class $modify(FFGameLayer, GJBaseGameLayer) {
-	void processCommands(float dt) {
+	void processCommands(float dt, bool isHalfTick, bool isLastTick) {
 		if (replayOn() && !g_macro.empty()) {
 			int frame = m_gameState.m_currentProgress;
 
@@ -92,7 +92,7 @@ class $modify(FFGameLayer, GJBaseGameLayer) {
 				g_injecting = false;
 			}
 		}
-		GJBaseGameLayer::processCommands(dt);
+		GJBaseGameLayer::processCommands(dt, isHalfTick, isLastTick);
 	}
 
 	void handleButton(bool down, int button, bool isPlayer1) {
