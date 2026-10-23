@@ -1,20 +1,65 @@
 {
-	"geode": "5.6.1",
+	"geode": "v5.6.1",
 	"gd": {
-		"win": "2.2081",
-		"android": "2.2074",
-		"mac": "2.2074",
-		"ios": "2.2074"
+		"win": "2.2081"
 	},
 	"id": "tuusuario.frame-fixer",
 	"name": "Frame Fixer",
 	"version": "v1.0.0",
 	"developer": "tuusuario",
-	"description": "Graba y reproduce macros de clicks por frame, con ajuste global de offset.",
+	"description": "Corrige tus clicks al frame correcto: aprende de tus muertes en practice y luego acomoda tus clicks tempranos. También graba y reproduce macros.",
 	"settings": {
+		"auto-fix": {
+			"type": "bool",
+			"name": "Corrector automático de clicks",
+			"description": "Juegas normal. Si mueres por un click mal puesto, el mod prueba ese click unos frames antes o después en los siguientes intentos hasta que pase. Tiene prioridad sobre grabar y reproducir.",
+			"default": true
+		},
+		"snap": {
+			"type": "bool",
+			"name": "Asistente de clicks (snap)",
+			"description": "Usa la macro de referencia (macro.txt, hecha con el corrector). Si das un click un poco ANTES del frame correcto, lo retiene y lo suelta en el frame exacto. Apaga el corrector automático para usarlo.",
+			"default": false
+		},
+		"snap-window": {
+			"type": "int",
+			"name": "Ventana del asistente (frames)",
+			"description": "Cuántos frames antes del click correcto se corrige. A 240 pasos por segundo, 4 frames son unos 17 ms.",
+			"default": 4,
+			"min": 1,
+			"max": 20,
+			"control": {
+				"input": true,
+				"slider": true
+			}
+		},
+		"max-shift": {
+			"type": "int",
+			"name": "Máximo desplazamiento (frames)",
+			"description": "Hasta cuántos frames antes o después prueba cada click.",
+			"default": 6,
+			"min": 1,
+			"max": 30,
+			"control": {
+				"input": true,
+				"slider": true
+			}
+		},
+		"safe-window": {
+			"type": "int",
+			"name": "Ventana de seguridad (frames)",
+			"description": "Cuántos frames debe sobrevivir tras el click para darlo por corregido. También es el máximo de frames entre el click y la muerte para considerarlo culpable.",
+			"default": 120,
+			"min": 30,
+			"max": 600,
+			"control": {
+				"input": true,
+				"slider": true
+			}
+		},
 		"enabled": {
 			"type": "bool",
-			"name": "Reproducir macro",
+			"name": "Reproducir macro de archivo",
 			"description": "Reproduce los clicks del archivo de macro y bloquea los clicks manuales.",
 			"default": false
 		},
@@ -37,7 +82,10 @@
 			"default": 0,
 			"min": -20,
 			"max": 20,
-			"control": { "input": true, "slider": true }
+			"control": {
+				"input": true,
+				"slider": true
+			}
 		}
 	}
 }
